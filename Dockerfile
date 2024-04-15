@@ -9,7 +9,7 @@ RUN yum update -y && \
 RUN yum install -y docker
 
 # Install JDK 17
-RUN wget https://download.java.net/java/17/latest/GPL/openjdk-17_linux-x64_bin.tar.gz && \
+RUN wget https://download.java.net/java/17/openjdk-17_linux-x64_bin.tar.gz && \
     tar -zxvf openjdk-17_linux-x64_bin.tar.gz && \
     mv jdk-17 /usr/local/ && \
     rm openjdk-17_linux-x64_bin.tar.gz
