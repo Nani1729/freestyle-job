@@ -5,9 +5,6 @@ pipeline {
       args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
-  tools {
-  maven 'MVN_HOME'
-  }
   stages {
     stage('mvn-clean') {
       steps {
