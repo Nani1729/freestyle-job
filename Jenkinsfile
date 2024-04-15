@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'manojreddy12/docker:v5.0.8'
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
+    }
+  }
   tools {
   maven 'MVN_HOME'
   }
@@ -7,17 +12,6 @@ pipeline {
     stage('mvn-clean') {
       steps {
         sh 'mvn compile'
-      }
-    }
-    stage('docker-login') {
-      steps {
-        sh 'docker version'
-        sh 'docker login --username manojreddy12 --password Manoj@107'
-      }
-    }
-    stage('docker-build') {
-      steps {
-        sh 'docker build -t manojreddy12/docker:v5.0.8 .'
       }
     }
   }
