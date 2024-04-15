@@ -17,7 +17,7 @@ pipeline {
     }
     stage('docker-build') {
       steps {
-        sh 'sudo docker build -t manojreddy12/docker:v5.0.8 .'
+        sh 'docker build -t manojreddy12/docker:v5.0.8 .'
       }
     }
   }
