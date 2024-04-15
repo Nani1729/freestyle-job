@@ -9,7 +9,7 @@ RUN yum update -y && \
 RUN yum install -y docker
 
 # Install OpenJDK 17
-RUN yum install java-17-amazon-corretto-devel
+RUN yum install java-17-amazon-corretto-devel -y
 
 # Install Maven
 RUN wget https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz && \
