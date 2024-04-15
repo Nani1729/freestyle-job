@@ -12,7 +12,7 @@ RUN yum install -y docker
 RUN yum install java-17-amazon-corretto-devel -y
 
 # Install Maven
-RUN sudo yum install maven
+RUN yum install maven
 
 # Set Maven environment variables
 # ENV MAVEN_HOME=/usr/local/apache-maven-3.8.4
