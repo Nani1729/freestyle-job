@@ -7,7 +7,11 @@ pipeline {
     stage('mvn-clean') {
       steps {
         sh 'mvn compile'
-        sh 'docker version'
+      }
+    }
+    stage('docker-login') {
+      steps {
+        sh 'docker login --username manojreddy12 --password Manoj@107'
       }
     }
   }
