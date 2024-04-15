@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-  maven name: 'MVN_HOME', type: 'maven'
+  maven: 'MVN_HOME'
   }
   stages {
     stage('mvn-clean') {
