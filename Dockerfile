@@ -8,15 +8,8 @@ RUN yum update -y && \
 # Install Docker
 RUN yum install -y docker
 
-# Install JDK 17
-RUN wget https://download.java.net/java/17/openjdk-17_linux-x64_bin.tar.gz && \
-    tar -zxvf openjdk-17_linux-x64_bin.tar.gz && \
-    mv jdk-17 /usr/local/ && \
-    rm openjdk-17_linux-x64_bin.tar.gz
-
-# Set Java environment variables
-ENV JAVA_HOME=/usr/local/jdk-17
-ENV PATH=$JAVA_HOME/bin:$PATH
+# Install OpenJDK 17
+RUN amazon-linux-extras install java-openjdk17
 
 # Install Maven
 RUN wget https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz && \
