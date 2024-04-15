@@ -12,14 +12,11 @@ RUN yum install -y docker
 RUN yum install java-17-amazon-corretto-devel -y
 
 # Install Maven
-RUN wget https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz && \
-    tar -zxvf apache-maven-3.8.4-bin.tar.gz && \
-    mv apache-maven-3.8.4 /usr/local/ && \
-    rm apache-maven-3.8.4-bin.tar.gz
+RUN sudo yum install maven
 
 # Set Maven environment variables
-ENV MAVEN_HOME=/usr/local/apache-maven-3.8.4
-ENV PATH=$MAVEN_HOME/bin:$PATH
+# ENV MAVEN_HOME=/usr/local/apache-maven-3.8.4
+# ENV PATH=$MAVEN_HOME/bin:$PATH
 
 # Set working directory
 WORKDIR /app
