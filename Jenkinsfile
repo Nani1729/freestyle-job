@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'gradle:8.2.0-jdk17-alpine'
+                    image 'manojreddy12/docker:v5.0.8'
                     // Run the container on the node specified at the
                     // top-level of the Pipeline, in the same workspace,
                     // rather than on a new node entirely:
@@ -12,7 +12,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'gradle --version'
+                sh 'mvn --version'
             }
         }
     }
