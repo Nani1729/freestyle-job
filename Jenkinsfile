@@ -1,17 +1,19 @@
 pipeline {
-  agent {
-    docker {
-      image 'manojreddy12/docker:v5.0.8'
-      args '-v /var/run/docker.sock:/var/run/docker.sock'
+    agent any
+    stages {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'gradle:8.2.0-jdk17-alpine'
+                    // Run the container on the node specified at the
+                    // top-level of the Pipeline, in the same workspace,
+                    // rather than on a new node entirely:
+                    reuseNode true
+                }
+            }
+            steps {
+                sh 'gradle --version'
+            }
+        }
     }
-  }
-  stages {
-    stage('mvn-clean') {
-      steps {
-        sh 'mvn compile'
-      }
-    }
-  }
 }
-
-      
