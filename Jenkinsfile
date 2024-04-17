@@ -32,7 +32,7 @@ pipeline {
                 script {
                     def scannerHome = tool 'sonar' // Make sure to configure this tool in Jenkins
                     withSonarQubeEnv('sonar-qube') {
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=my_project_key"
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=demo-app"
                     }
                 }
             }
