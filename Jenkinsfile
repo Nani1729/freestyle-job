@@ -26,12 +26,13 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('build && SonarQube analysis') {
+        stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('sonar-qube') {
-                    // Optionally use a Maven environment you've configured already
-                    withMaven(maven:'Maven') {
-                        sh 'mvn clean package sonar:sonar'
+                // Run SonarQube scanner
+                script {
+                    def scannerHome = tool 'sonar' // Make sure to configure this tool in Jenkins
+                    withSonarQubeEnv('sonar-qube') {
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
             }
